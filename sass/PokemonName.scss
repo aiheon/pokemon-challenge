@@ -1,0 +1,15 @@
+a#pokemonNameTitle:link, a#pokemonNameTitle:hover, a#pokemonNameTitle:active {
+    background-color: #dec0a6;
+    color: #4f9bc8;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 35px;
+    font-weight: bolder;
+    border-radius: 5px;
+  }
+  
+  a#pokemonNameTitle:visited {
+    color: #b3c2e3;
+  }
