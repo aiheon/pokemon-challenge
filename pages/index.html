@@ -11,27 +11,31 @@
     <script src="js/templates/templates.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        Coveo.SearchEndpoint.configureSampleEndpointV2();
+        Coveo.SearchEndpoint.configureCloudV2Endpoint(
+          'aiheonpokemonchallenge3wby7a0z', 
+          'xx06921848-a8c8-4829-85bd-1c1206fbb22b',
+          'https://platformqa.cloud.coveo.com/rest/search'
+        );
         Coveo.init(document.body);
       })
     </script>
   </head>
-  <body id="search" class='CoveoSearchInterface' data-enable-history="true">
+  <body id="search" class='CoveoSearchInterface CustomBackground' data-enable-history="true">
     <div class="CoveoHelloWorld"></div>
-    <div class="coveo-tab-section">
-      <a class="CoveoTab" data-id="All" data-caption="All Content"></a>
+    <div class="coveo-tab-section CustomBackground">
+      <a class="CoveoTab" data-id="All" data-caption="Pokedex"></a>
     </div>
+    <div class="CoveoAnalytics" data-search-hub="CommunitySearch"></div>
     <div class='coveo-search-section'>
       <div class="CoveoSettings"></div>
-      <div class="CoveoSearchbox" data-enable-omnibox="true"></div>
+      <div class="CoveoSearchbox SandColorBackground" data-enable-omnibox="true"></div>
     </div>
     <div class="coveo-main-section">
-      <div class="coveo-facet-column">
-        <div class="CoveoFacet" data-title="Type" data-field="@objecttype" data-tab="All"></div>
-        <div class="CoveoFacet" data-title="FileType" data-field="@filetype" data-tab="All"></div>
-        <div class="CoveoFacet" data-title="Author" data-field="@author" data-tab="All"></div>
-        <div class="CoveoFacet" data-title="Year" data-field="@year" data-tab="All"></div>
-        <div class="CoveoFacet" data-title="Month" data-field="@month" data-tab="All"></div>
+      <div class="coveo-facet-column SandColorBackground">
+        <div class="CoveoFacet" data-title="Source" data-field="@source" data-tab="All"></div>
+        <div class="CoveoFacet" data-title="Generation" data-field="@pokemongeneration" data-tab="All"></div>
+        <div class="CoveoFacet" data-title="Type" data-field="@pokemontype" data-tab="All" data-enable-toggling-operator="true"></div>
+        <div class="CoveoFacetSlider" data-title="Number" data-field="@pokemonnumber" data-tab="All"></div>
       </div>
       <div class="coveo-results-column">
         <div class="CoveoShareQuery"></div>
@@ -41,8 +45,8 @@
           <div class="CoveoResultsFiltersPreferences"></div>
         </div>
         <div class="CoveoBreadcrumb"></div>
-        <div class="coveo-results-header">
-          <div class="coveo-summary-section">
+        <div class="coveo-results-header SandColorText">
+          <div class="coveo-summary-section SandColorText">
             <span class="CoveoQuerySummary"></span>
             <span class="CoveoQueryDuration"></span>
           </div>
@@ -57,7 +61,27 @@
         <div class="CoveoHiddenQuery"></div>
         <div class="CoveoDidYouMean"></div>
         <div class="CoveoErrorReport"></div>
-        <div class="CoveoResultList" data-layout="list" data-wait-animation="fade" data-auto-select-fields-to-include="true"></div>
+        <div class="CoveoResultList" data-layout="list" data-wait-animation="fade" data-auto-select-fields-to-include="true">
+                 
+          <script class="result-template" type="text/html">
+            <div class="coveo-result-frame">
+              <div class="coveo-result-row">
+                <div class="coveo-result-cell">
+                  <a id="pokemonNameTitle" class="CoveoResultLink PokemonName" data-title-template="${raw.pokemonname}"></a>
+                </div>
+              </div>
+              <div class="coveo-result-row">
+                <div class="coveo-result-cell">
+                  <div class="CoveoImageFieldValue center" data-field="@pokemonimage" data-height="100" data-width="100"></div>
+                </div>
+                <div class="coveo-result-cell">
+                  <div class="CoveoFieldValue CustomTextStyle" data-field="@pokemondescription"></div>
+                  <div class="CoveoFieldValue CustomTextStyle" data-field="@pokemonweight"></div>
+              </div>
+            </div>  
+          </script>
+
+        </div>  
         <div class="CoveoResultList" data-layout="card" data-wait-animation="fade" data-auto-select-fields-to-include="true"></div>
         <div class="CoveoPager"></div>
         <div class="CoveoLogo"></div>
