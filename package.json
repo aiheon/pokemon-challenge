@@ -4,7 +4,8 @@
   "description": "A fast starter / seed project to extend the Coveo Javascript Framework",
   "main": "index.js",
   "scripts": {
-    "start": "npm run setup && npm run css && npx webpack -p --progress && node server.js",
+    "start": "node server.js",
+    "heroku-postbuild": "webpack -p",
     "test": "karma start --single-run",
     "setup": "node setup.js",
     "build": "npm run setup && npm run css && webpack",
