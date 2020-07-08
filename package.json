@@ -4,7 +4,7 @@
   "description": "A fast starter / seed project to extend the Coveo Javascript Framework",
   "main": "index.js",
   "scripts": {
-    "start": "npm run setup && npm run css && npx webpack --config webpack-serve.config --progress",
+    "start": "./node_modules/webpack/bin/webpack.js -p --progress && node server.js",
     "test": "karma start --single-run",
     "setup": "node setup.js",
     "build": "npm run setup && npm run css && webpack",
@@ -56,6 +56,7 @@
   },
   "snyk": true,
   "dependencies": {
+    "express": "^4.17.1",
     "snyk": "^1.291.0"
   }
 }
